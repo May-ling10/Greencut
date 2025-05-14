@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GREENCUT - Innovación Ecológica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom right, #e8f5e9, #f1f8e9);
+      color: #2e7d32;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: #1b5e20;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 8px 16px rgba(0, 128, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card i {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #388e3c;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .cta a {
+      background-color: #43a047;
+      color: white;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      font-weight: bold;
+      border-radius: 2rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta a:hover {
+      background-color: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+  <header class="text-center py-10 bg-white shadow-md">
+  <img src="logo.png" alt="GREENCUT Logo" class="mx-auto w-32 h-auto mb-4">
+  <h1 class="text-4xl font-bold text-green-600">GREENCUT</h1>
+  <p class="text-lg text-gray-600">Innovación en el mantenimiento ecológico</p>
+</header>
+
+
+  <section>
+    <h2>¿Qué problema resolvemos?</h2>
+    <p>El crecimiento de maleza entre las grietas del cemento afecta la estética urbana y puede causar deterioro en las estructuras.</p>
+  </section>
+
+  <section>
+    <h2>Objetivos y Tareas</h2>
+    <div class="cards">
+      <div class="card">
+        <i class="fas fa-exclamation-triangle"></i>
+        <h3>Problema</h3>
+        <p>Remoción manual ineficiente y costosa de maleza en espacios públicos.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-bullseye"></i>
+        <h3>Objetivos</h3>
+        <p>Desarrollar un robot autónomo que identifique y elimine maleza con precisión.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-tasks"></i>
+        <h3>Tareas</h3>
+        <p>Diseño CAD, simulaciones FEA, programación embebida y control remoto.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Diseño y Ensamble</h2>
+    <div class="gallery">
+      <img src="images/solidworks1.jpg" alt="Diseño SolidWorks">
+      <img src="images/fea1.jpg" alt="Análisis FEA">
+      <img src="images/ensamble1.jpg" alt="Ensamble final">
+    </div>
+  </section>
+
+  <section class="cta">
+    <a href="#">Ver robot en acción</a>
+  </section>
+</body>
+</html>
