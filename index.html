@@ -132,6 +132,36 @@
         grid-template-columns: 1fr;
       }
     }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .column h3 {
+      color: #1b5e20;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .compare-card {
+      background: white;
+      padding: 1rem 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 128, 0, 0.1);
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .compare-card:hover {
+      transform: translateY(-4px);
+    }
+
   </style>
 </head>
 <body>
@@ -142,9 +172,50 @@
   </header>
 
   <section>
-    <h2>¿Qué problema resolvemos?</h2>
-    <p>El crecimiento de maleza entre las grietas del cemento afecta la estética urbana y puede causar deterioro en las estructuras.</p>
+    <h2>¿Quiénes somos?</h2>
+    <p>Somos un equipo de estudiantes universitarios apasionados por la innovación y la tecnología. 
+      Desarrollamos una solución práctica para el corte de pasto que crece entre los ladrillos combinando la ingeniería, robótica y sostenibilidad. 
+      GreenBot es un carro autónomo diseñado para eliminar pasto en espacios urbanos de manera eficiente y ecológica. </p>
   </section>
+  
+  <section>
+    <h2 style="text-align:center;">Problema vs Solución</h2>
+    <div class="comparison-grid">
+      <div class="column">
+        <h3><i class="fas fa-exclamation-circle"></i> Problemas</h3>
+        <div class="compare-card">
+          🌱 Crecimiento de maleza entre las grietas.
+        </div>
+        <div class="compare-card">
+          🧱 Deterioro de estructuras por raíces invasivas.
+        </div>
+        <div class="compare-card">
+          💸 Mantenimiento manual lento y costoso.
+        </div>
+        <div class="compare-card">
+          ♻️ Métodos tradicionales contaminantes.
+        </div>
+      </div>
+
+      <div class="column">
+        <h3><i class="fas fa-robot"></i> GreenBot Soluciona</h3>
+        <div class="compare-card">
+          ✅ Autonomía total con sensores y GPS.
+        </div>
+        <div class="compare-card">
+          ✅ Corta solo la vegetación, sin dañar el suelo.
+        </div>
+        <div class="compare-card">
+          ✅ Sistema de seguridad evitando choques.
+        </div>
+        <div class="compare-card">
+          ✅ Conectividad directamente a la nube.
+        </div>
+      </div>
+    </div>
+  </section>
+
+    
 
   <section>
     <h2>Objetivos y Tareas</h2>
