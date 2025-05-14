@@ -22,6 +22,12 @@
       text-align: center;
     }
 
+    header img {
+      max-width: 120px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
     header h1 {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
@@ -98,15 +104,42 @@
     .cta a:hover {
       background-color: #2e7d32;
     }
+
+    /* ---------------- RESPONSIVE DESIGN ---------------- */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      section {
+        padding: 2rem 1rem;
+      }
+
+      .card {
+        padding: 1.5rem;
+      }
+
+      .cta a {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
-  <header class="text-center py-10 bg-white shadow-md">
-  <img src="logo.png" alt="GREENCUT Logo" class="mx-auto w-32 h-auto mb-4">
-  <h1 class="text-4xl font-bold text-green-600">GREENCUT</h1>
-  <p class="text-lg text-gray-600">Innovación en el mantenimiento ecológico</p>
-</header>
-
+  <header>
+    <img src="logo.png" alt="GREENCUT Logo">
+    <h1>GREENCUT</h1>
+    <p>Innovación en el mantenimiento ecológico</p>
+  </header>
 
   <section>
     <h2>¿Qué problema resolvemos?</h2>
