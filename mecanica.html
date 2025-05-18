@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
+
+  <title> Mecánica - GreenCut</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color:linear-gradient(to bottom right, #d0eed2, #fff8eb);
+      color: #3a7129;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: #3a7129;
+      color: #f9f7f3;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      background-color: #f9f7f3;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #3a7129;
+      margin-top: 2rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 1rem 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #3a7129;
+      color: #f9f7f3;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .back-button:hover {
+      background-color: #1b5e20;
+    }
+
+    figure {
+    text-align: center;
+    margin: 5px 0;
+    }
+
+    figcaption {
+    font-size: 0.8em;
+    color: #3a7129;
+    margin-top: 2px;
+    }
+
+    img:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    section, .container {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+    }
+
+    @keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
+    
+    .tabla-container {
+        overflow-x: auto;
+        margin-bottom: 20px;
+    }
+
+  .tabla-verde {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #f3f4f9;
+        color: #3a7129;
+        min-width: 600px;
+    }
+
+    .tabla-verde th,
+    .tabla-verde td {
+        border: 1px solid #3a7129;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .tabla-verde th {
+        background-color: #6c9b62;
+    }
+
+    .tabla-verde tr:hover {
+        background-color: #6c9b62;
+    }
+
+    /* Estilo para pantallas pequeñas */
+    @media screen and (max-width: 600px) {
+        .tabla-verde {
+        font-size: 14px;
+        }
+    }
+    .gallery {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 200px;
+      height: auto;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.2s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal */
+    #modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modal img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1> Diseño mecánico - GreenCut</h1>
+  </header>
+
+  <div class="container">
+    <h2>🧰 Elección de componentes</h2>
+    <p>
+        Para la elección de componentes se buscaron las mejores referencias que se adaptaran a GreenCut con el fin de que sea eficiente y no tenga un peso elevado. Aquí encontrarás los componentes que usamos con su respectiva referencia.
+    </p>
+    <div class="tabla-container">
+  <table class="tabla-verde">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Elemento</th>
+        <th>Referencia</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Batería</td><td>BATERIA SELLADA 12v-18 AH FL12180GS</td></tr>
+      <tr><td>2</td><td>Chasis</td><td>Diseño de Solid</td></tr>
+      <tr><td>3</td><td>Cargador inteligente</td><td></td></tr>
+      <tr><td>4</td><td>Cable</td><td>Cable 18 AWG</td></tr>
+      <tr><td>5</td><td>Módulo GPS RTK</td><td>Rtk 1 De Nivel Centimétrico</td></tr>
+      <tr><td>6</td><td>Antena GPS</td><td>Quectel-antena YB0017AA GNSS L1 L5</td></tr>
+      <tr><td>7</td><td>Adaptador</td><td>Adaptador RF SMA Hembra a uFL</td></tr>
+      <tr><td>8</td><td>Jumpers</td><td></td></tr>
+      <tr><td>9</td><td>Paro de emergencia</td><td></td></tr>
+      <tr><td>10</td><td>MOTOR N20 500rpm</td><td>Motorreductor de metal 12V 500RPM N20</td></tr>
+      <tr><td>11</td><td>Convertidor de voltaje sensores</td><td></td></tr>
+      <tr><td>12</td><td>Convertidor de voltaje STM</td><td>LM2596 REDUCTOR SALIDA USB</td></tr>
+      <tr><td>13</td><td>Convertidor de voltaje motores</td><td>Conversor DC-DC Tipo Buck Ajustable 12A</td></tr>
+      <tr><td>14</td><td>Ultrasonido</td><td>SRF02</td></tr>
+      <tr><td>15</td><td>Motores</td><td></td></tr>
+      <tr><td>16</td><td>STM</td><td>STM32F401</td></tr>
+      <tr><td>17</td><td>Cepillo</td><td>Cabezal De Corte De Césped</td></tr>
+      <tr><td>18</td><td>Cámara</td><td>Cámara Nocturna Ov5647 1080p</td></tr>
+      <tr><td>19</td><td>Tornillos</td><td></td></tr>
+      <tr><td>20</td><td>Lámina</td><td>Diseño propio</td></tr>
+      <tr><td>21</td><td>PCB</td><td>Diseño propio</td></tr>
+      <tr><td>22</td><td>Disipador</td><td>Disipador con Ventilador Activo</td></tr>
+      <tr><td>23</td><td>Memoria</td><td>SanDisk SDSQXA2-064G-GN6MA</td></tr>
+      <tr><td>24</td><td>Raspberry</td><td>Raspberry Pi 5 4GB</td></tr>
+      <tr><td>25</td><td>IMU-9250</td><td>Giroscopio Acelerómetro Mpu-9250 Gy-9250</td></tr>
+    </tbody>
+  </table>
+</div>
+
+    <h2>🖥️ Análisis por elementos finitos</h2>
+    <p>
+        Luego de escoger los componentes y haber realizado el diseño en CAD, se realiza la validación por F.E.A. con el fin de agregar las cargas que va a soportar el chasis para ver que tanto puede soportar.
+    </p>
+    <figure>
+        <img src="images/FEA1.png" alt="F.E.A 1">
+        <figcaption> </figcaption>
+    </figure>
+    <figure>
+        <img src="images/FEA2.png" alt="F.E.A 2">
+        <figcaption> </figcaption>
+    </figure>
+    <figure>
+        <img src="images/FEA3.png" alt="F.E.A 3">
+        <figcaption> </figcaption>
+    </figure>
+
+
+    <h2>👷🏼‍♀ Contrucción</h2>
+    <p>
+        Con la F.E.A validada se corta y dobla la lámina de aluminio y se realiza el ensamble del carro con los componentes y la sensórica.
+    </p>
+     <div class="gallery">
+      <img src="images/tapa.jpg" alt="tapa" onclick="openModal(this)">
+      <img src="images/electronica.jpg" alt="Electrónica" onclick="openModal(this)">
+      <img src="images/lateral.jpg" alt="Vista lateral" onclick="openModal(this)">
+      <img src="images/diseño_implementado.jpg" alt="Diseño sin tapa" onclick="openModal(this)">
+      <img src="images/final.jpg" alt="Diseño final" onclick="openModal(this)">
+    </div>
+
+    <a class="back-button" href="index.html">Volver a la página anterior</a>
+  </div>
+</body>
+</html>
