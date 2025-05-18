@@ -12,7 +12,7 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
 
-  <title> Mecánica - GreenCut</title>
+  <title> Control - GreenCut</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -278,207 +278,93 @@
 </head>
 <body>
   <header>
-    <h1> Diseño mecánico - GreenCut</h1>
+    <h1> Diseño del Control - GreenCut</h1>
   </header>
 
+  <h2>🪄 Modelo Cinemático</h2>
+    <p>
+        Este modelo describe como se mueve el robot sin considerar las fuerzas involucradas. Es útil para planificar trayectorias y controlar su desplazamiento, porque define 
+        la relación entre las velocidades de las orugas y el movimiento del robot, a parte que
+        permite saber cómo girar, avanzar en línea recta o moverse en curvas y se usa para
+        diseñar algoritmos de navegación autónoma y evitar obstáculos. Para este modelo se
+        utiliza la referencia de robot móvil tipo diferencial.
+    </p>
+    <div class="swiper-container main-slider" id="control-main-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="images/diferencial.png" alt="dif">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/ecua_cine.png" alt="ecua">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/trayec.png" alt="trayectoria">
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+    <div class="swiper-container thumb-slider" id="control-thumb-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="images/diferencial.png" alt="mini dif">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/ecua_cine.png" alt="mini ecua">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/trayec.png" alt="mini trayectoria">
+        </div>
+      </div>
+    </div>
+
   <div class="container">
-    <h2>🧰 Elección de componentes</h2>
+    <h2>➡️ Control de velocidad</h2>
     <p>
-        Para la elección de componentes se buscaron las mejores referencias que se adaptaran a GreenCut con el fin de que sea eficiente y no tenga un peso elevado. Aquí encontrarás los componentes que usamos con su respectiva referencia.
-    </p>
-    <div class="tabla-container">
-      <table class="tabla-verde">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Elemento</th>
-            <th>Referencia</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1</td><td>Batería</td><td>BATERIA SELLADA 12v-18 AH FL12180GS</td></tr>
-          <tr><td>2</td><td>Chasis</td><td>Diseño de Solid</td></tr>
-          <tr><td>3</td><td>Cargador inteligente</td><td></td></tr>
-          <tr><td>4</td><td>Cable</td><td>Cable 18 AWG</td></tr>
-          <tr><td>5</td><td>Módulo GPS RTK</td><td>Rtk 1 De Nivel Centimétrico</td></tr>
-          <tr><td>6</td><td>Antena GPS</td><td>Quectel-antena YB0017AA GNSS L1 L5</td></tr>
-          <tr><td>7</td><td>Adaptador</td><td>Adaptador RF SMA Hembra a uFL</td></tr>
-          <tr><td>8</td><td>Jumpers</td><td></td></tr>
-          <tr><td>9</td><td>Paro de emergencia</td><td></td></tr>
-          <tr><td>10</td><td>MOTOR N20 500rpm</td><td>Motorreductor de metal 12V 500RPM N20</td></tr>
-          <tr><td>11</td><td>Convertidor de voltaje sensores</td><td></td></tr>
-          <tr><td>12</td><td>Convertidor de voltaje STM</td><td>LM2596 REDUCTOR SALIDA USB</td></tr>
-          <tr><td>13</td><td>Convertidor de voltaje motores</td><td>Conversor DC-DC Tipo Buck Ajustable 12A</td></tr>
-          <tr><td>14</td><td>Ultrasonido</td><td>SRF02</td></tr>
-          <tr><td>15</td><td>Motores</td><td></td></tr>
-          <tr><td>16</td><td>STM</td><td>STM32F401</td></tr>
-          <tr><td>17</td><td>Cepillo</td><td>Cabezal De Corte De Césped</td></tr>
-          <tr><td>18</td><td>Cámara</td><td>Cámara Nocturna Ov5647 1080p</td></tr>
-          <tr><td>19</td><td>Tornillos</td><td></td></tr>
-          <tr><td>20</td><td>Lámina</td><td>Diseño propio</td></tr>
-          <tr><td>21</td><td>PCB</td><td>Diseño propio</td></tr>
-          <tr><td>22</td><td>Disipador</td><td>Disipador con Ventilador Activo</td></tr>
-          <tr><td>23</td><td>Memoria</td><td>SanDisk SDSQXA2-064G-GN6MA</td></tr>
-          <tr><td>24</td><td>Raspberry</td><td>Raspberry Pi 5 4GB</td></tr>
-          <tr><td>25</td><td>IMU-9250</td><td>Giroscopio Acelerómetro Mpu-9250 Gy-9250</td></tr>
-        </tbody>
-      </table>
-    </div>
+        Este son dos controles a bajo nivel, uno por cada una de las orugas del carro. 
+        Consta de un control PI discreto con un tiempo de estabilización de 0.1 seg para cada motor, con el fin de acatar lo mas rápido posible las señales de control que vienen dados por el control a alto nivel. 
+        Este control se ejecuta con un tiempo de muestreo de 2 ms y se programa en la stm teniendo encuentra el control en tiempo real de las variables que se están evaluando con ayuda de los modulos timer que permiten una lectura ideonea del encoder.
 
-    <h2>📁 Planos</h2>
-    <p>
-        Luego de escoger los componentes y haber realizado el diseño en CAD, se realiza la validación por F.E.A. con el fin de agregar las cargas que va a soportar el chasis para ver que tanto puede soportar.
     </p>
-
-    <div class="pdf-gallery">
-      <div class="pdf-card">
-        <a href="planos/BASE_PILA.pdf" target="_blank">
-          <img src="planos/BASE_PILA.png" alt="Documento 1">
-          Base de la pila
-        </a>
-      </div>
-      
-      <div class="pdf-card">
-        <a href="planos/carcaza.pdf" target="_blank">
-          <img src="planos/carcaza.png" alt="Documento 1">
-          Carcasa 
-        </a>
-      </div>
-      
-      <div class="pdf-card">
-        <a href="planos/base2.pdf" target="_blank">
-          <img src="planos/base2.png" alt="Documento 2">
-          Base de la cámara
-        </a>
-      </div>
-      
-      <div class="pdf-card">
-        <a href="planos/BaseGDL3.1 RC_1.pdf" target="_blank">
-          <img src="planos/BaseGDL3.1 RC_1.png" alt="Documento 1">
-          Base del servomotor
-        </a>
-      </div>
-      
-      <div class="pdf-card">
-        <a href="planos/carcasa_ regulador_controladores.pdf" target="_blank">
-          <img src="planos/carcasa_ regulador_controladores.png" alt="Documento 1">
-          Carcasa del regulador
-        </a>
-      </div>
-      
-      <div class="pdf-card">
-        <a href="planos/case camara.pdf" target="_blank">
-          <img src="planos/case camara.png" alt="Documento 1">
-          Case de la cámara
-        </a>
-      </div>
-      
-      <div class="pdf-card">
-        <a href="planos/OIY.pdf" target="_blank">
-          <img src="planos/OIY.png" alt="Documento 1">
-          Herramienta
-        </a>
-      </div>
-      
-      <div class="pdf-card">
-        <a href="planos/SOPORTE1_BATERIA.pdf" target="_blank">
-          <img src="planos/SOPORTE1_BATERIA.png" alt="Documento 1">
-          Soporte de la pila
-        </a>
-      </div>
-      
-      <div class="pdf-card">
-        <a href="planos/SOPORTE2_BATERIA.pdf" target="_blank">
-          <img src="planos/SOPORTE2_BATERIA.png" alt="Documento 1">
-          Soporte de la pila
-        </a>
-      </div>
-    </div>
-
-    <h2>🖥️ Análisis por elementos finitos</h2>
-    <p>
-        Luego de escoger los componentes y haber realizado el diseño en CAD, se realiza la validación por F.E.A. con el fin de agregar las cargas que va a soportar el chasis para ver que tanto puede soportar.
-    </p>
-    
-    <!-- Carrusel de F.E.A -->
-    <div class="swiper-container main-slider" id="fea-main-slider">
+    <div class="swiper-container main-slider" id="bajo-main-slider">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <img src="images/FEA1.png" alt="F.E.A 1">
+          <img src="images/bajo.png" alt="bajo">
         </div>
         <div class="swiper-slide">
-          <img src="images/FEA2.png" alt="F.E.A 2">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/FEA3.png" alt="F.E.A 3">
+          <img src="images/rta_bajo.png" alt="rta">
         </div>
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
     </div>
 
-    <div class="swiper-container thumb-slider" id="fea-thumb-slider">
+    <div class="swiper-container thumb-slider" id="bajo-thumb-slider">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <img src="images/FEA1.png" alt="mini F.E.A 1">
+          <img src="images/bajo.png" alt="mini rta">
         </div>
         <div class="swiper-slide">
-          <img src="images/FEA2.png" alt="mini F.E.A 2">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/FEA3.png" alt="mini F.E.A 3">
+          <img src="images/rta_bajo.png" alt="mini rta">
         </div>
       </div>
     </div>
 
-    <h2>👷🏼‍♀ Construcción</h2>
-    <p>
-        Con la F.E.A validada se corta y dobla la lámina de aluminio y se realiza el ensamble del carro con los componentes y la sensórica.
-    </p>
     
-    <!-- Carrusel de Construcción -->
-    <div class="swiper-container main-slider" id="construccion-main-slider">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="images/tapa.jpg" alt="tapa">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/electronica.jpg" alt="Electrónica">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/lateral.jpg" alt="Vista lateral">
-        </div>
-        <div class="swiper-slide">  
-          <img src="images/diseño_implementado.jpg" alt="Diseño sin tapa"> 
-        </div>
-        <div class="swiper-slide">
-          <img src="images/final.jpg" alt="Diseño final">
-        </div>
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
+    <h2>⏏️ Control Cinemático</h2>
+    <p>
+        Este es un control de alto nivel que actúa sobre la tarea entera del robot de seguir una trayectoria determinada. 
+        Funciona estimando las posiciones x, y & su respectiva orientación desde las velocidades medidas desde los enconders de los motores. 
+        Sigue una ley de control tal que u = velocidades_deseadas * k1 + error_posicion * k2 donde u son las velocidades en x, y, theta a las que se le calculan cinemática inversa y son las velocidades que son enviadas al robot para que se ejecute.
+    </p>
+    <figure>
+        <img src="images/alto.png" alt="Casa de la calidad">
+        <figcaption>Control cinemático</figcaption>
+    </figure>
 
-    <div class="swiper-container thumb-slider" id="construccion-thumb-slider">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="images/tapa.jpg" alt="tapa">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/electronica.jpg" alt="Electrónica">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/lateral.jpg" alt="Vista lateral">
-        </div>
-        <div class="swiper-slide">  
-          <img src="images/diseño_implementado.jpg" alt="Diseño sin tapa"> 
-        </div>
-        <div class="swiper-slide">
-          <img src="images/final.jpg" alt="Diseño final">
-        </div>
-      </div>
-    </div>
-
+    
+    
     <button onclick="window.history.back()" style="
       background-color: #3a7129;
       color: white;
