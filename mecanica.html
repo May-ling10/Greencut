@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet">
@@ -10,7 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <title> Mecánica - GreenCut</title>
   <style>
@@ -380,88 +381,32 @@
     <p>
         Luego de escoger los componentes y haber realizado el diseño en CAD, se realiza la validación por F.E.A. con el fin de agregar las cargas que va a soportar el chasis para ver que tanto puede soportar.
     </p>
-    <div class="swiper-container main-slider-fea">
+    <div class="swiper-container main-slider">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="images/FEA1.png" alt="F.E.A 1">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/FEA2.png" alt="F.E.A 2">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/FEA3.png" alt="F.E.A 3">
-        </div>
+        <div class="swiper-slide"><img src="images/FEA1.png" alt="F.E.A 1"></div>
+        <div class="swiper-slide"><img src="images/FEA2.png" alt="F.E.A 2"></div>
+        <div class="swiper-slide"><img src="images/FEA3.png" alt="F.E.A 3"></div>
       </div>
-      <!-- Flechas -->
+      <!-- Agregar navegación -->
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
+      <!-- Indicadores -->
+      <div class="swiper-pagination"></div>
     </div>
 
-    <!-- Miniaturas FEA -->
-    <div class="swiper-container thumb-slider-fea">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="images/FEA1.png" alt="Mini F.E.A 1">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/FEA2.png" alt="Mini F.E.A 2">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/FEA3.png" alt="Mini F.E.A 3">
-        </div>
-      </div>
-    </div>
-  
+
     <h2>👷🏼‍♀ Contrucción</h2>
     <p>
         Con la F.E.A validada se corta y dobla la lámina de aluminio y se realiza el ensamble del carro con los componentes y la sensórica.
     </p>
-      <!-- Carrusel principal de implementación -->
-  <div class="swiper-container main-slider-implementacion">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="images/tapa.jpg" alt="Tapa">
-      </div>
-      <div class="swiper-slide">
-        <img src="images/electronica.jpg" alt="Electrónica">
-      </div>
-      <div class="swiper-slide">
-        <img src="images/lateral.jpg" alt="Vista lateral">
-      </div>
-      <div class="swiper-slide">
-        <img src="images/diseño_implementado.jpg" alt="Diseño sin tapa">
-      </div>
-      <div class="swiper-slide">
-        <img src="images/final.jpg" alt="Diseño final">
-      </div>
+     <div class="gallery">
+      <img src="images/tapa.jpg" alt="tapa" onclick="openModal(this)">
+      <img src="images/electronica.jpg" alt="Electrónica" onclick="openModal(this)">
+      <img src="images/lateral.jpg" alt="Vista lateral" onclick="openModal(this)">
+      <img src="images/diseño_implementado.jpg" alt="Diseño sin tapa" onclick="openModal(this)">
+      <img src="images/final.jpg" alt="Diseño final" onclick="openModal(this)">
     </div>
-    <!-- Flechas -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </div>
 
-  <!-- Miniaturas -->
-  <div class="swiper-container thumb-slider-implementacion">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="images/tapa.jpg" alt="Mini Tapa">
-      </div>
-      <div class="swiper-slide">
-        <img src="images/electronica.jpg" alt="Mini Electrónica">
-      </div>
-      <div class="swiper-slide">
-        <img src="images/lateral.jpg" alt="Mini Lateral">
-      </div>
-      <div class="swiper-slide">
-        <img src="images/diseño_implementado.jpg" alt="Mini Diseño sin tapa">
-      </div>
-      <div class="swiper-slide">
-        <img src="images/final.jpg" alt="Mini Diseño final">
-      </div>
-    </div>
-  </div>
-
-    
   <button onclick="window.history.back()" style="
     background-color: #3a7129;
     color: white;
@@ -473,22 +418,15 @@
   ">
   ⬅ Volver
   </button>
-  </div>
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    function openModal(img) {
-      document.getElementById("modal-img").src = img.src;
-      document.getElementById("modal").style.display = "flex";
-    }
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
-    const thumbSwiper = new Swiper(".thumb-slider", {
+    var thumbSwiper = new Swiper(".thumb-slider", {
       spaceBetween: 10,
-      slidesPerView: 4,
+      slidesPerView: 3,
       watchSlidesProgress: true,
     });
 
-    const mainSwiper = new Swiper(".main-slider", {
+    var mainSwiper = new Swiper(".main-slider", {
       spaceBetween: 10,
       navigation: {
         nextEl: ".swiper-button-next",
@@ -499,5 +437,34 @@
       },
     });
   </script>
+  </div>
+  <script>
+    const swiper = new Swiper('.main-slider', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  </script>
+  <script>
+    const swiper = new Swiper('.main-slider', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  </script>
+
+
 </body>
 </html>
