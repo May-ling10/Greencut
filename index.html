@@ -10,20 +10,20 @@
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
-      background: linear-gradient(to bottom right, #e8f5e9, #f1f8e9);
-      color: #2e7d32;
+      background: linear-gradient(to bottom right, #d0eed2, #fff8eb);
+      color: #3a7129;
       scroll-behavior: smooth;
     }
 
     header {
-      background-color: #1b5e20;
-      color: #fff6e6;
+      background-color: #3a7129;
+      color: #f9f7f3;
       padding: 2rem 1rem;
       text-align: center;
     }
 
     header img {
-      max-width: 300px; /* ajusta el tamaño del logo aquí */
+      max-width: 300px;
       height: auto;
       margin-bottom: 1rem;
     }
@@ -52,7 +52,7 @@
     }
 
     .card {
-      background: #fff6e6;
+      background: #f9f7f3;
       border-radius: 1rem;
       padding: 2rem;
       box-shadow: 0 8px 16px rgba(0, 128, 0, 0.1);
@@ -63,73 +63,39 @@
       transform: translateY(-5px);
     }
 
-    .card i {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #388e3c;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .gallery img {
-      width: 100%;
-      border-radius: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.03);
-    }
-
-    .cta {
-      text-align: center;
-      margin-top: 3rem;
-    }
-
-    .cta a {
-      background-color: #43a047;
-      color: #fff6e6;
+    .cta a, .design-link {
+      background-color: #3a7129;
+      color: #f9f7f3;
       text-decoration: none;
       padding: 1rem 2rem;
       font-weight: bold;
       border-radius: 2rem;
       transition: background-color 0.3s ease;
+      display: inline-block;
+      margin-top: 1rem;
     }
 
-    .cta a:hover {
-      background-color: #2e7d32;
+    .cta a:hover, .design-link:hover {
+      background-color: #2f5d20;
     }
 
-    /* ---------------- RESPONSIVE DESIGN ---------------- */
+    /* Responsive */
     @media (max-width: 600px) {
       header h1 {
         font-size: 2rem;
       }
-
       header p {
         font-size: 1rem;
       }
-
       section {
         padding: 2rem 1rem;
       }
-
       .card {
         padding: 1.5rem;
       }
-
       .cta a {
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem;
-      }
-
-      .gallery {
-        grid-template-columns: 1fr;
       }
     }
 
@@ -141,7 +107,7 @@
     }
 
     .column h3 {
-      color: #1b5e20;
+      color: #3a7129;
       font-size: 1.5rem;
       margin-bottom: 1rem;
       display: flex;
@@ -150,7 +116,7 @@
     }
 
     .compare-card {
-      background: #fff6e6;
+      background: #f9f7f3;
       padding: 1rem 1.5rem;
       border-radius: 1rem;
       box-shadow: 0 4px 10px rgba(0, 128, 0, 0.1);
@@ -165,13 +131,6 @@
     .team-section {
       text-align: center;
       padding: 2rem;
-    }
-
-    .team-section h2 {
-      font-size: 2.5rem;
-      color: #212529;
-      margin-bottom: 2rem;
-      font-weight: bold;
     }
 
     .team-container {
@@ -191,12 +150,12 @@
       height: 180px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid #6b9135;
+      border: 4px solid #3a7129;
     }
 
     .team-member h3 {
-      background-color: #6b9135;
-      color: rgb(255, 246, 222);
+      background-color: #3a7129;
+      color: #f3f4f9;
       padding: 0.5rem;
       margin: 0.5rem 0 0;
       font-size: 1.1rem;
@@ -205,10 +164,8 @@
     .team-member p {
       margin: 0;
       font-size: 1rem;
-      color: #fff6e6;
+      color: #3a7129;
     }
-
-
   </style>
 </head>
 <body>
@@ -220,81 +177,46 @@
 
   <section>
     <h2>¿Quiénes somos?</h2>
-    <p>Somos un equipo de estudiantes universitarios apasionados por la innovación y la tecnología. 
-      Desarrollamos una solución práctica para el corte de pasto que crece entre los ladrillos combinando la ingeniería, robótica y sostenibilidad. 
-      GreenBot es un carro autónomo diseñado para eliminar pasto en espacios urbanos de manera eficiente y ecológica. </p>
+    <p>Somos un equipo de estudiantes universitarios apasionados por la innovación y la tecnología con la iniciativa de ofrecer una solución práctica para el corte de césped que crece entre los ladrillos por medio de la ingeniería, la robótica y la sostenibilidad.</p>
   </section>
 
   <section class="team-section">
     <h2>EQUIPO DIRECTIVO</h2>
     <div class="team-container">
-      <div class="team-member">
-        <img src="images/verano.jpg" alt="Juan Verano">
-        <h3>Juan Verano</h3>
-        <p>Electrónica</p>
-      </div>
-      <div class="team-member">
-        <img src="images/crespo.jpg" alt="Santiago Crespo">
-        <h3>Santiago Crespo</h3>
-        <p>Control</p>
-      </div>
-      <div class="team-member">
-        <img src="images/may.jpg" alt="May-ling Moreno">
-        <h3>May-ling Moreno</h3>
-        <p>Control</p>
-      </div>
-      <div class="team-member">
-        <img src="images/jisel.jpg" alt="Jisel Rodriguez">
-        <h3>Jisel Rodriguez</h3>
-        <p>Mecánica</p>
-      </div>
-      <div class="team-member">
-        <img src="images/laura.jpg" alt="Laura Pareja">
-        <h3>Laura Pareja</h3>
-        <p>Comunicaciones</p>
-      </div>
+      <div class="team-member"><img src="images/verano.jpg" alt="Juan Verano"><h3>Juan Verano</h3><p>Electrónica</p></div>
+      <div class="team-member"><img src="images/crespo.jpg" alt="Santiago Crespo"><h3>Santiago Crespo</h3><p>Control</p></div>
+      <div class="team-member"><img src="images/may.jpg" alt="May-ling Moreno"><h3>May-ling Moreno</h3><p>Control</p></div>
+      <div class="team-member"><img src="images/jisel.jpg" alt="Jisel Rodriguez"><h3>Jisel Rodriguez</h3><p>Mecánica</p></div>
+      <div class="team-member"><img src="images/laura.jpg" alt="Laura Pareja"><h3>Laura Pareja</h3><p>Comunicaciones</p></div>
     </div>
   </section>
 
-  
   <section>
     <h2 style="text-align:center;">Problema vs Solución</h2>
     <div class="comparison-grid">
       <div class="column">
         <h3><i class="fas fa-exclamation-circle"></i> Problemas</h3>
-        <div class="compare-card">
-          🌱 Crecimiento de maleza entre las grietas.
-        </div>
-        <div class="compare-card">
-          🧱 Deterioro de estructuras por raíces invasivas.
-        </div>
-        <div class="compare-card">
-          💸 Mantenimiento manual lento y costoso.
-        </div>
-        <div class="compare-card">
-          ♻️ Métodos tradicionales contaminantes.
-        </div>
+        <div class="compare-card">🌱 Crecimiento de césped entre los ladrillos.</div>
+        <div class="compare-card">🧱 Deterioro de estructuras por raíces invasivas.</div>
+        <div class="compare-card">💸 Mantenimiento manual lento y perjudicial para la salud a largo plazo.</div>
+        <div class="compare-card">🫗 Métodos tradicionales contaminantes y desperdicios de agua.</div>
       </div>
-
       <div class="column">
-        <h3><i class="fas fa-robot"></i> GreenBot Soluciona</h3>
-        <div class="compare-card">
-          ✅ Autonomía total con sensores y GPS.
-        </div>
-        <div class="compare-card">
-          ✅ Corta solo la vegetación, sin dañar el suelo.
-        </div>
-        <div class="compare-card">
-          ✅ Sistema de seguridad evitando choques.
-        </div>
-        <div class="compare-card">
-          ✅ Conectividad directamente a la nube.
-        </div>
+        <h3><i class="fas fa-robot"></i> GreenCut</h3>
+        <div class="compare-card">📍 Localización por medio de GPS y seguridad con sensórica.</div>
+        <div class="compare-card">☢️ No usa pesticidas, químicos ni genera gastos de agua.</div>
+        <div class="compare-card">🤖 Autonomía total desde el inicio del recorrido hasta la zona de corte.</div>
+        <div class="compare-card">🛜 Conectividad directamente a la nube.</div>
       </div>
     </div>
   </section>
 
-    
+  <!-- NUEVA SECCIÓN: Proceso de diseño -->
+  <section>
+    <h2>Proceso de diseño</h2>
+    <p>Descubre cómo surgió la idea de GreenCut, las etapas clave en su desarrollo y los retos técnicos que enfrentamos para llegar a una solución sostenible y funcional.</p>
+    <a class="design-link" href="proceso_de_diseño.html">Ver más detalles</a>
+  </section>
 
   <section>
     <h2>Objetivos y Tareas</h2>
@@ -315,19 +237,6 @@
         <p>Diseño CAD, simulaciones FEA, programación embebida y control remoto.</p>
       </div>
     </div>
-  </section>
-
-  <section>
-    <h2>Diseño y Ensamble</h2>
-    <div class="gallery">
-      <img src="images/solidworks1.jpg" alt="Diseño SolidWorks">
-      <img src="images/fea1.jpg" alt="Análisis FEA">
-      <img src="images/ensamble1.jpg" alt="Ensamble final">
-    </div>
-  </section>
-
-  <section class="cta">
-    <a href="#">Ver robot en acción</a>
   </section>
 </body>
 </html>
