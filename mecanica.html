@@ -212,17 +212,30 @@
       margin-top: 20px;
     }
 
+    /* Contenedor del slider */
     .main-slider {
       width: 100%;
-      height: 400px;
-      margin-bottom: 20px;
+      max-width: 600px;  /* ancho máximo en pantallas grandes */
+      height: auto;
+      margin: 0 auto 20px auto; /* centrado y separación inferior */
     }
 
+    /* Estilo de las diapositivas */
+    .main-slider .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Imagen dentro de la diapositiva */
     .main-slider .swiper-slide img {
       width: 100%;
-      height: 100%;
+      height: auto;
+      max-height: 70vh;  /* no más del 70% de la altura visible */
       object-fit: contain;
       border-radius: 10px;
+    }
+
     }
 
     .thumb-slider {
@@ -383,15 +396,32 @@
     </p>
     <div class="swiper-container main-slider">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="images/FEA1.png" alt="F.E.A 1"></div>
-        <div class="swiper-slide"><img src="images/FEA2.png" alt="F.E.A 2"></div>
-        <div class="swiper-slide"><img src="images/FEA3.png" alt="F.E.A 3"></div>
+        <div class="swiper-slide">
+          <img src="images/FEA1.png" alt="F.E.A 1">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/FEA2.png" alt="F.E.A 2">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/FEA3.png" alt="F.E.A 3">
+        </div>
       </div>
-      <!-- Agregar navegación -->
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
-      <!-- Indicadores -->
-      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="swiper-container thumb-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="images/FEA1.png" alt="F.E.A 1">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/FEA2.png" alt="F.E.A 2">
+        </div>
+        <div class="swiper-slide">
+          <img src="images/FEA3.png" alt="F.E.A 3">
+        </div>
+      </div>
     </div>
 
 
@@ -399,45 +429,79 @@
     <p>
         Con la F.E.A validada se corta y dobla la lámina de aluminio y se realiza el ensamble del carro con los componentes y la sensórica.
     </p>
-     <div class="gallery">
-      <img src="images/tapa.jpg" alt="tapa" onclick="openModal(this)">
-      <img src="images/electronica.jpg" alt="Electrónica" onclick="openModal(this)">
-      <img src="images/lateral.jpg" alt="Vista lateral" onclick="openModal(this)">
-      <img src="images/diseño_implementado.jpg" alt="Diseño sin tapa" onclick="openModal(this)">
-      <img src="images/final.jpg" alt="Diseño final" onclick="openModal(this)">
+    <div class="swiper-container main-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="images/tapa.jpg" alt="tapa">
+        </div>
+        <div class="swiper-slide"></div>
+          <img src="images/electronica.jpg" alt="Electrónica" >
+        </div>
+        <div class="swiper-slide"></div>
+          <img src="images/lateral.jpg" alt="Vista lateral" >
+        </div>
+        <div class="swiper-slide"></div>  
+          <img src="images/diseño_implementado.jpg" alt="Diseño sin tapa"> 
+        </div>
+        <div class="swiper-slide"></div>
+          <img src="images/final.jpg" alt="Diseño final">
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
     </div>
 
-  <button onclick="window.history.back()" style="
-    background-color: #3a7129;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-  ">
-  ⬅ Volver
-  </button>
+    <div class="swiper-container thumb-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="images/tapa.jpg" alt="tapa">
+        </div>
+        <div class="swiper-slide"></div>
+          <img src="images/electronica.jpg" alt="Electrónica" >
+        </div>
+        <div class="swiper-slide"></div>
+          <img src="images/lateral.jpg" alt="Vista lateral" >
+        </div>
+        <div class="swiper-slide"></div>  
+          <img src="images/diseño_implementado.jpg" alt="Diseño sin tapa"> 
+        </div>
+        <div class="swiper-slide"></div>
+          <img src="images/final.jpg" alt="Diseño final">
+        </div>
+      </div>
+    </div>
+
+    <button onclick="window.history.back()" style="
+      background-color: #3a7129;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    ">
+    ⬅ Volver
+    </button>
+    </div>
    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    var thumbSwiper = new Swiper(".thumb-slider", {
-      spaceBetween: 10,
-      slidesPerView: 3,
-      watchSlidesProgress: true,
-    });
+  const thumbSwiper = new Swiper(".thumb-slider", {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    watchSlidesProgress: true,
+  });
 
-    var mainSwiper = new Swiper(".main-slider", {
-      spaceBetween: 10,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      thumbs: {
-        swiper: thumbSwiper,
-      },
-    });
-  </script>
-  </div>
+  const mainSwiper = new Swiper(".main-slider", {
+    spaceBetween: 10,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    thumbs: {
+      swiper: thumbSwiper,
+    },
+  });
+</script>
   <script>
     const swiper = new Swiper('.main-slider', {
       loop: true,
@@ -451,20 +515,5 @@
       },
     });
   </script>
-  <script>
-    const swiper = new Swiper('.main-slider', {
-      loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
-  </script>
-
-
 </body>
 </html>
