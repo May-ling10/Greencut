@@ -80,6 +80,19 @@
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
 
+    section, .container {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+    }
+
+    @keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
 
   </style>
 </head>
@@ -106,9 +119,6 @@
     <p>
         La casa de calidad de GreenCut tuvo encuenta los resultados de las encuestas para poder adquirir información de cuales requerimientos son importantes para el cliente y de esta forma, realizar un análisis para realizar las primeras propuestas.
     </p>
-    <a href="images/casa_calidad.png"" data-lightbox="Casa de la calidad" data-title="Casa de la calidad">
-        <img src="images/casa_calidad.png" alt="Casa de la calidad">
-    </a>
 
     <figure>
         <img src="images/casa_calidad.png" alt="Casa de la calidad">
